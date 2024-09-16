@@ -30,17 +30,12 @@ class Solution {
 
     // Note that the size of the array is n-1
     int missingNumber(int n, int arr[]) {
-
-         int s=(n*(n+1))/2;
-        int sum=0;
+int s=0;
+        int sum=(n*(n+1))/2;
         for(int i=0;i<n-1;i++){
-            sum+=arr[i];
-           
+            s+=arr[i];
         }
-    
-    
-      int m = s - sum;
- return m;
- 
-}
+        int v=sum-s;
+        return v;
+    }
 }
