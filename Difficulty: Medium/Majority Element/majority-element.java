@@ -20,32 +20,34 @@ class Geeks {
 // } Driver Code Ends
 
 
-// User function Template for Java
-
 class Solution {
     static int majorityElement(int arr[]) {
-        int cnt = 0;
-        int el=arr[0] ;
-        for (int i = 0;i<arr.length;i++) {
-            if (arr[i]==el) {
-                cnt++;
+        int c = 0;
+        int ele = -1; 
+        
+        for (int i = 0; i < arr.length; i++) {
+            if (c == 0) {
+                ele = arr[i]; 
+                c = 1;          
+            } else if (arr[i] == ele) {
+                c++; 
             } else {
-                cnt--;
-            }
-            if (cnt==0) {
-                el=arr[i];
-                cnt=1;
+                c--; 
             }
         }
-        int count=0;
-        for (int i=0;i<arr.length;i++) {
-            if (arr[i]==el) {
-                count++;
+        int cnt1 = 0;
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] == ele) {
+                cnt1++;  
             }
         }
-        if (count>(arr.length/2)) {
-            return el;
+
+
+        if (cnt1 > (arr.length / 2)) {
+            return ele;
         }
+        
+        
         return -1;
     }
 }
