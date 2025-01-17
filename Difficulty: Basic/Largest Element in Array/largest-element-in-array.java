@@ -49,16 +49,15 @@ class GFG {
 // } Driver Code Ends
 
 
+
 class Solution {
     public static int largest(int[] arr) {
-        int largest = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > largest) {
-                largest = arr[i]; 
-            }
+    int large=arr[0];
+    for(int i=0;i<arr.length;i++){
+        if (arr[i]>large){
+            large=arr[i];
         }
-
-        return largest;
+    }
+    return large;
     }
 }
-
