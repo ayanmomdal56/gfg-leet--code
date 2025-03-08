@@ -12,7 +12,7 @@ class Solution {
     public ListNode deleteDuplicates(ListNode head) {
          if (head == null) return null;
 ListNode prev=head;
-ListNode temp=head.next;
+ListNode temp=prev.next;
 
 while(temp!=null ){
     if(temp.val==prev.val){
