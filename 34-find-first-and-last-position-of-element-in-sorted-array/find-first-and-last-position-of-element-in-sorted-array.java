@@ -1,21 +1,31 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-     int[] result={-1, -1};
-    for(int i=0;i<nums.length;i++){
-     if(nums[i]==target)
-     {
-       result[0] = i;
-        while(i<nums.length && nums[i]==target){
-         result[1]=i;
+        int first = findBound(nums, target, true);
+        int last = findBound(nums, target, false);
+        return new int[] {first, last};
+    }
 
-            i++;
+    private int findBound(int[] nums, int target, boolean isFirst) {
+        int start = 0, end = nums.length - 1;
+        int bound = -1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] == target) {
+                bound = mid;
+                if (isFirst) {
+                    end = mid - 1; // Search left half
+                } else {
+                    start = mid + 1; // Search right half
+                }
+            } else if (nums[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
         }
-            break;
-        
-     }  
-     }
-    return result;
-   
 
+        return bound;
     }
 }
