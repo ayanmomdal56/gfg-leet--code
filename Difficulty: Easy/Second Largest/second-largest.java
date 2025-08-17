@@ -1,46 +1,23 @@
-//{ Driver Code Starts
-// Initial Template for Java
-import java.io.*;
-import java.util.*;
-import java.util.stream.Collectors;
+class Solution {
+    public int getSecondLargest(int[] arr) {
 
-public class Main {
+int lar=arr[0];
+int slar=-1;
 
-    public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        int t = Integer.parseInt(sc.nextLine());
-        while (t-- > 0) {
-            String[] arr1Str = sc.nextLine().split(" ");
-            int[] arr = Arrays.stream(arr1Str).mapToInt(Integer::parseInt).toArray();
-            Solution ob = new Solution();
-            int ans = ob.getSecondLargest(arr);
-            System.out.println(ans);
-
-            System.out.println("~");
-        }
+for(int i=1;i<arr.length;i++){
+    
+    
+    if(arr[i]>lar){
+        slar=lar;
+        lar=arr[i];
+    }
+    
+    if(arr[i]<lar && arr[i]>slar){
+        slar=arr[i];
     }
 }
 
-// } Driver Code Ends
-
-
-// User function Template for Java
-
-class Solution {
-    public int getSecondLargest(int[] arr) {
-      int  large=arr[0];
-        int slarge=-1;
-        for(int i=0;i<arr.length;i++){
-        if(arr[i]>large){
-      
-        slarge=large;
-          large=arr[i];
-        }
-       else if(arr[i]<large && arr[i]>slarge){
-        slarge=arr[i];
-    }
-    }
-        return slarge;
+return slar;
 
     }
 }
