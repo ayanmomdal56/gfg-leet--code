@@ -8,7 +8,6 @@ class Solution {
 
 if(maxi<s){
     maxi=s;
-
 }
 
 if(s<0){
